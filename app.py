@@ -1,10 +1,9 @@
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import create_engine
 
-db = SQLAlchemy()
+engine = create_engine('sqlite://')
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE__URI"] = "sqlite:///mercado.db"
-db.init_app(app)
+
 
 @app.route('/')
 def page_home():
